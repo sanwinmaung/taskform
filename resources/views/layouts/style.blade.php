@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="{{ asset('custom/css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/vendors/linericon/style.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/vendors/owl-carousel/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/css/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/css/custom.css') }}">
+<link rel="stylesheet" href="{{ asset('custom/css/bootstrap-datetimepicker.min.css') }}">
+<link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{ asset('sweet-alert/css/sweetalert.css') }}">
