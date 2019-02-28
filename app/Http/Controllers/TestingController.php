@@ -8,6 +8,6 @@ class TestingController extends Controller
 {
 	public function test()
 	{
-	    return view('task-forms.test');
+	    return view('test');
 	}
 }

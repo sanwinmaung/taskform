@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AssignTaskMail;
 use App\User;
 use App\TaskForm;
 use App\TaskType;
 use App\Contact;
 use App\Priority;
 
-use App\Http\Requests\StoreTask;
-use App\Http\Requests\UpdateTask;
+use App\Http\Requests\Task\StoreTask;
+use App\Http\Requests\Task\UpdateTask;
 
 class TaskFormController extends Controller
 {
@@ -39,6 +41,7 @@ class TaskFormController extends Controller
     {
         $input = $request->all();
         $task = TaskForm::create($input);
+        Mail::to($task->user->email)->send(new AssignTaskMail($task));
         return redirect()->route('task-forms.index');
     }
 
@@ -54,14 +57,15 @@ class TaskFormController extends Controller
 
     public function update(UpdateTask $request, TaskForm $taskForm)
     {
+        $task = $taskForm;
         $input = $request->all();
         $taskForm->update($input);
+        Mail::to($task->user->email)->send(new AssignTaskMail($task));
         return redirect()->route('task-forms.index');
     }
 
     public function destroy(TaskForm $taskForm)
     {
-        return $taskForm;
         $taskForm->delete();
         return redirect()->route('task-forms.index');
     }

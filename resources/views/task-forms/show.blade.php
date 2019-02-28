@@ -67,14 +67,14 @@
           <div class="col-sm-3">
           </div>
           <div class="col-sm-8">
-            <a href="{{ route('task-forms.edit', $task->id) }}" role="button" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
+            <a href="{{ route('task-forms.index') }}" role="button" class="btn btn-sub"><i class="fa fa-check"></i> Close</a>
 
-            <form action="{{ route('task-forms.destroy', $task->id) }}" method="POST" style="display: inline;" id="delete-form">
+            {{-- <form action="{{ route('task-forms.destroy', $task->id) }}" method="POST" style="display: inline;" id="delete-form">
               @csrf
               @method('delete')
 
               <button type="submit" class="btn btn-default btn-sub" id="delete-btn"><i class="fa fa-trash"></i> Delete</button>
-            </form>
+            </form> --}}
           </div>
         </div>
       </div>

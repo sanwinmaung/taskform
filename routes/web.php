@@ -16,5 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('portfolio', 'HomeController@portfolio')->name('portfolio');
+Route::get('download-cv', 'HomeController@getDownload')->name('download.cv');
+
 Route::resource('task-forms', 'TaskFormController');
+Route::resource('task-types', 'TaskTypeController');
+Route::resource('priority', 'PriorityController');
+Route::resource('contact', 'ContactController');
+Route::resource('users', 'UserController');
+
+/* Testing Route*/
 Route::get('testing', 'TestingController@test');

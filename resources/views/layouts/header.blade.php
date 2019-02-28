@@ -19,21 +19,14 @@
                     <li class="nav-item {{ set_active('portfolio') }}"><a class="nav-link" href="{{ route('portfolio') }}">Portfolio</a></li>
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">Pages</a>
+                        aria-expanded="false">All Settings</a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                            <li class="nav-item"><a class="nav-link" href="portfolio-details.html">Portfolio Details</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('task-types.index') }}">Task Type</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('contact.index') }}">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('priority.index') }}">Priority</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Assignee</a></li>
                 </ul>
             </div>
         </div>

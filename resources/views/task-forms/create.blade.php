@@ -12,7 +12,7 @@
       @csrf
       
       <div class="form-group row {{ $errors->has('task_type_id') ? ' has-error' : '' }}">
-        <label for="task_type_id" class="col-sm-3 col-form-label">Task Type</label>
+        <label for="task_type_id" class="col-sm-3 col-form-label">Task Type <a href="{{ route('task-types.create') }}" class="add-btn"><i class="fa fa-plus"></i></a></label>
         <div class="col-sm-8">
           <select class="custom-select border-left-red" name="task_type_id" id="task_type_id">
             <option selected disabled>Select a Task Type</option>
@@ -29,10 +29,10 @@
         </div>
       </div>
 
-      <div class="form-group row {{ $errors->has('company') ? ' is-invalid' : '' }}">
+      <div class="form-group row">
         <label for="company" class="col-sm-3 col-form-label">Company</label>
         <div class="col-sm-8">
-          <input type="company" class="form-control border-left-red" id="company" name="company" value="{{ old('company') }}">
+          <input type="company" class="form-control border-left-red  {{ $errors->has('company') ? ' is-invalid' : '' }}" id="company" name="company" value="{{ old('company') }}" required>
 
           @if ($errors->has('company'))
           <span class="invalid-feedback" role="alert">
@@ -42,10 +42,10 @@
         </div>
       </div>
 
-      <div class="form-group row {{ $errors->has('contact_id') ? ' has-error' : '' }}">
-        <label for="contact_id" class="col-sm-3 col-form-label">Contact</label>
+      <div class="form-group row">
+        <label for="contact_id" class="col-sm-3 col-form-label">Contact <a href="{{ route('contact.create') }}" class="add-btn"><i class="fa fa-plus"></i></a></label>
         <div class="col-sm-8">
-          <select class="custom-select border-left-red" name="contact_id" id="contact_id">
+          <select class="custom-select border-left-red  {{ $errors->has('contact_id') ? ' has-error' : '' }}" name="contact_id" id="contact_id">
             <option selected disabled>Select a Contact</option>
             @foreach ($contacts as $contact)
             <option value="{{ $contact->id }}" {{ (collect(old('contact_id'))->contains($contact->id)) ? 'selected':'' }}>{{ $contact->name }}</option>
@@ -63,7 +63,7 @@
       <div class="form-group row">
         <label for="objective" class="col-sm-3 col-form-label">Subject / Objective</label>
         <div class="col-sm-8">
-          <input type="objective" class="form-control border-left-red {{ $errors->has('objective') ? ' is-invalid' : '' }}" id="objective" name="objective" value="{{ old('objective') }}">
+          <input type="objective" class="form-control border-left-red {{ $errors->has('objective') ? ' is-invalid' : '' }}" id="objective" name="objective" value="{{ old('objective') }}" required>
 
           @if ($errors->has('objective'))
           <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
       </div>
 
       <div class="form-group row {{ $errors->has('user_id') ? ' has-error' : '' }}">
-        <label for="user_id" class="col-sm-3 col-form-label">Assigned To</label>
+        <label for="user_id" class="col-sm-3 col-form-label">Assigned To <a href="{{-- {{ route('users.create') }} --}}" class="add-btn"><i class="fa fa-plus"></i></a></label>
         <div class="col-sm-8">
           <select class="custom-select border-left-red" name="user_id" id="user_id">
             <option selected disabled>Select an Assignee</option>
@@ -94,7 +94,7 @@
       <div class="form-group row">
         <label for="datepicker" class="col-sm-3 col-form-label">Due Date</label>
         <div class="col-sm-4">
-          <input id="datepicker" class="border-left-red {{ $errors->has('due_date') ? ' has-error' : '' }}" name="due_date"  value="{{ old('due_date') }}" />
+          <input id="datepicker" class="border-left-red {{ $errors->has('due_date') ? ' has-error' : '' }}" name="due_date"  value="{{ old('due_date') }}"  required/>
           @if ($errors->has('due_date'))
           <span class="invalid-feedback" role="alert">
             <strong>* {{ $errors->first('due_date') }}</strong>
@@ -103,7 +103,7 @@
         </div>
 
         <div class="col-sm-4 time-picker-margin">
-          <input id="timepicker" type="text" placeholder="HH:MM" class="{{ $errors->has('due_time') ? ' has-error' : '' }}" name="due_time" value="{{ old('due_time') }}"  style="border: 1px solid #ced4da !important;" />
+          <input id="timepicker" type="text" placeholder="HH:MM" class="{{ $errors->has('due_time') ? ' has-error' : '' }}" name="due_time" value="{{ old('due_time') }}"  style="border: 1px solid #ced4da !important;"  required/>
           @if ($errors->has('due_time'))
           <span class="invalid-feedback" role="alert">
             <strong>* {{ $errors->first('due_time') }}</strong>
@@ -116,7 +116,7 @@
       <div class="form-group row">
         <label for="datepicker2" class="col-sm-3 col-form-label">Set Reminder</label>
         <div class="col-sm-4">
-          <input id="datepicker2" class="border-left-red-responsive {{ $errors->has('remind_date') ? ' has-error' : '' }}" name="remind_date" value="{{ old('remind_date') }}" />
+          <input id="datepicker2" class="border-left-red-responsive {{ $errors->has('remind_date') ? ' has-error' : '' }}" name="remind_date" value="{{ old('remind_date') }}"  required/>
           @if ($errors->has('remind_date'))
           <span class="invalid-feedback" role="alert">
             <strong>* {{ $errors->first('remind_date') }}</strong>
@@ -125,7 +125,7 @@
         </div>
 
         <div class="col-sm-4 time-picker-margin">
-          <input id="timepicker2" type="text" placeholder="HH:MM" class="{{ $errors->has('remind_time') ? ' has-error' : '' }}" name="remind_time" value="{{ old('remind_time') }}"  style="border: 1px solid #ced4da !important;" />
+          <input id="timepicker2" type="text" placeholder="HH:MM" class="{{ $errors->has('remind_time') ? ' has-error' : '' }}" name="remind_time" value="{{ old('remind_time') }}"  style="border: 1px solid #ced4da !important;"  required/>
           @if ($errors->has('remind_time'))
           <span class="invalid-feedback" role="alert">
             <strong>* {{ $errors->first('remind_time') }}</strong>
@@ -135,7 +135,7 @@
       </div>
 
       <div class="form-group row {{ $errors->has('priority_id') ? ' has-error' : '' }}">
-        <label for="priority_id" class="col-sm-3 col-form-label">Priority</label>
+        <label for="priority_id" class="col-sm-3 col-form-label">Priority <a href="{{ route('priority.create') }}" class="add-btn"><i class="fa fa-plus"></i></a></label>
         <div class="col-sm-8">
           <select class="custom-select border-left-red" name="priority_id" id="priority_id">
             <option selected disabled>Select a Priority</option>
