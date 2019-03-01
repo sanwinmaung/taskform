@@ -5,7 +5,7 @@ th {
 }
 </style>
 <div style="text-align: center">
-	<img src="{{ asset('custom/img/benline-logo.svg') }}" style="width: 150px;height: 90px;" alt="">
+	<img src="{{ asset('uploads/img/benline-logo.svg') }}" style="width: 150px;height: 90px;" alt="">
 </div><br>
 <div class="container" style="border: 2px solid #eee;min-width: 800px">
 	<div class="row" style="margin-left: 40px;margin-top: 40px;">
