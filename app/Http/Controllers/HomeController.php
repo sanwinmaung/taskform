@@ -17,6 +17,6 @@ class HomeController extends Controller
 		$headers = array(
 			'Content-Type: application/pdf',
 		);
-		return Response::download($file, 'filename.pdf', $headers);
+		return Response::download($file, 'sanwinmaung-cv.pdf', $headers);
 	}
 }
